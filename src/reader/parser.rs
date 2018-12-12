@@ -1,19 +1,11 @@
-use crate::reader::lexer::*;
+use ::reader::lexer::*;
+use ::core::types::*;
 
 use std::fmt;
 use std::slice;
 
 pub fn parse(tokens: &Vec<Token>) -> Result<Vec<Node>, ParseError> {
     Parser::parse(tokens)
-}
-
-#[derive(PartialEq, Clone, Debug)]
-pub enum Node {
-    Identifier(String),
-    Integer(i64),
-    Boolean(bool),
-    String(String),
-    List(Vec<Node>),
 }
 
 pub struct ParseError {

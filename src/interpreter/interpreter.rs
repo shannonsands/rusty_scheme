@@ -2,6 +2,7 @@ use crate::reader::lexer;
 use crate::reader::parser;
 use crate::interpreter::ast_walk_interpreter;
 use crate::interpreter::cps_interpreter;
+use crate::core::types::Node;
 
 #[cfg(not(test))]
 use crate::core::repl;
@@ -42,7 +43,7 @@ impl Interpreter {
         }
     }
 
-    fn parse(&self, input: &str) -> Result<Vec<parser::Node>, String> {
+    fn parse(&self, input: &str) -> Result<Vec<Node>, String> {
         let tokens = try_or_err_to_string!(lexer::tokenize(input));
         let ast = try_or_err_to_string!(parser::parse(&tokens));
         Ok(ast)

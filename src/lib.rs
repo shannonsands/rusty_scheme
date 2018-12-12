@@ -1,5 +1,6 @@
-pub mod reader;
+#[macro_use]
 pub mod core;
+pub mod reader;
 pub mod interpreter;
 
 //pub mod lexer;
